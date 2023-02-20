@@ -13,21 +13,21 @@ services:
       - "4200:4200"
     networks:
       - one-home-app-network
-#
-#  api-server:
-#    image: api-server
-#    container_name: api-server
-#    command: [ "supervisor", "-e", "js,ts,html", "src/app.js" ]
-#    build:
-#      context: ./serverapi
-#      dockerfile: dev.Dockerfile
-#    volumes:
-#      - ./serverapi/src:/app/src
-#      - /app/node_modules
-#    ports:
-#      - "3000:3000"
-#    networks:
-#      - one-home-app-network
+
+  api-server:
+    image: api-server
+    container_name: api-server
+    command: [ "supervisor", "-e", "js,ts,html", "src/app.js" ]
+    build:
+      context: ./serverapi
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./serverapi/src:/app/src
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - one-home-app-network
 
 networks:
   one-home-app-network:

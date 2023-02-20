@@ -1,12 +1,21 @@
-version: '3'
+version: '3.3'
 services:
-  angular-ui:
+  app-ui:
+    image: app-ui
+    container_name: app-ui
     build:
       context: ./appui
       dockerfile: dev.Dockerfile
     ports:
-      - "4201:4201"
-    container_name: angular-ui
+      - "4200:4200"
     volumes:
       - ./appui:/app
       - /app/node_modules
+    networks:
+      - one-home-app-network
+
+
+
+networks:
+  one-home-app-network:
+    driver: bridge
