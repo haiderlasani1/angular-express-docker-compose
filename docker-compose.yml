@@ -1,0 +1,12 @@
+version: '3'
+services:
+  angular-ui:
+    build:
+      context: ./appui
+      dockerfile: dev.Dockerfile
+    ports:
+      - "4201:4201"
+    container_name: angular-ui
+    volumes:
+      - ./appui:/app
+      - /app/node_modules
